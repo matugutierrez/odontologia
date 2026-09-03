@@ -78,13 +78,13 @@ const setupWords = () => {
   titles.forEach((title) => {
     const words = title.textContent.trim().split(/\s+/)
     title.textContent = ""
-    words.forEach((word, index) => {
+    words.forEach((word, inicio) => {
       const span = document.createElement("span")
       span.className = "palabra"
-      span.style.setProperty("--palabra", String(index))
+      span.style.setProperty("--palabra", String(inicio))
       span.textContent = word
       title.appendChild(span)
-      if (index < words.length - 1) {
+      if (inicio < words.length - 1) {
         title.appendChild(document.createTextNode(" "))
       }
     })
