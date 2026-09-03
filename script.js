@@ -241,28 +241,44 @@ if (Object.is(document.readyState, "loading")) {
 }
 
 const banda = document.querySelector(".carrusel");
-const pista = banda.querySelector(".fila-carrusel");
+const pista = banda ? banda.querySelector(".fila-carrusel") : null;
 let desplazamiento = 0;
 let velocidad = 1;
 let objetivo = 1;
 
-banda.addEventListener("mouseenter", function () {
-  objetivo = 0;
-});
-
-banda.addEventListener("mouseleave", function () {
-  objetivo = 1;
-});
-
-function animarCinta() {
-  velocidad += (objetivo - velocidad) * 0.01;
-  desplazamiento -= velocidad;
-  const mitad = pista.scrollWidth / 2;
-  if (desplazamiento <= -mitad) {
-    desplazamiento += mitad;
+if (banda && pista) {
+  banda.addEventListener("mouseenter", function () {
+    objetivo = 0;
+  });
+  banda.addEventListener("mouseleave", function () {
+    objetivo = 1;
+  });
+  function animarCinta() {
+    velocidad += (objetivo - velocidad) * 0.01;
+    desplazamiento -= velocidad;
+    const mitad = pista.scrollWidth / 2;
+    if (desplazamiento <= -mitad) {
+      desplazamiento += mitad;
+    }
+    pista.style.transform = "translate3d(" + desplazamiento + "px, 0, 0)";
+    requestAnimationFrame(animarCinta);
   }
-  pista.style.transform = "translate3d(" + desplazamiento + "px, 0, 0)";
   requestAnimationFrame(animarCinta);
 }
 
-requestAnimationFrame(animarCinta);
+(function () {
+  try {
+    if (location.protocol === "file:") return;
+    var p = location.pathname;
+    var clean = null;
+    if (p.endsWith("index.html")) {
+      clean = p.replace(/index\.html$/, "");
+      if (clean === "") clean = "/";
+    } else if (p.endsWith(".html")) {
+      clean = p.replace(/\.html$/, "");
+    }
+    if (clean !== null) {
+      history.replaceState(null, "", clean + location.search + location.hash);
+    }
+  } catch (e) {}
+})();
