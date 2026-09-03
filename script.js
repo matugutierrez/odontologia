@@ -239,3 +239,30 @@ if (Object.is(document.readyState, "loading")) {
 } else {
   boot()
 }
+
+const banda = document.querySelector(".carrusel");
+const pista = banda.querySelector(".fila-carrusel");
+let desplazamiento = 0;
+let velocidad = 1;
+let objetivo = 1;
+
+banda.addEventListener("mouseenter", function () {
+  objetivo = 0;
+});
+
+banda.addEventListener("mouseleave", function () {
+  objetivo = 1;
+});
+
+function animarCinta() {
+  velocidad += (objetivo - velocidad) * 0.01;
+  desplazamiento -= velocidad;
+  const mitad = pista.scrollWidth / 2;
+  if (desplazamiento <= -mitad) {
+    desplazamiento += mitad;
+  }
+  pista.style.transform = "translate3d(" + desplazamiento + "px, 0, 0)";
+  requestAnimationFrame(animarCinta);
+}
+
+requestAnimationFrame(animarCinta);
