@@ -213,7 +213,7 @@
       overlay.classList.remove("abierto");
       btn.classList.remove("abierto");
       btn.setAttribute("aria-expanded", "false");
-      if (label) label.textContent = "MenÃº";
+      if (label) label.textContent = "Menú";
       document.body.style.overflow = "";
       timer = setTimeout(function () {
         overlay.classList.remove("visible");
