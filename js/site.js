@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   "use strict";
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -50,7 +50,7 @@
       if (!n.img) continue;
       var r = n.el.getBoundingClientRect();
       if (r.bottom < -200 || r.top > vh + 200) continue;
-      var p = (vh - r.top) / (vh + r.height); // 0 â†’ 1
+      var p = (vh - r.top) / (vh + r.height);
       p = Math.min(1, Math.max(0, p));
       var range = n.amount / 12;
       var y = -range + p * range * 2;
@@ -247,20 +247,6 @@
       });
     }
 
-    document.addEventListener("click", function (e) {
-      var a = e.target.closest ? e.target.closest("a") : null;
-      if (!a || reduced) return;
-      var href = a.getAttribute("href");
-      if (!href || a.target === "_blank" || href.charAt(0) === "#" || /^(https?:|mailto:|tel:)/.test(href)) return;
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-      e.preventDefault();
-      curtain.classList.add("activo");
-      curtain.style.transition = "clip-path 0.55s cubic-bezier(0.87,0,0.13,1)";
-      curtain.style.clipPath = "inset(0% 0% 0% 0%)";
-      setTimeout(function () {
-        window.location.href = href;
-      }, 480);
-    });
   }
 
   function init() {
@@ -275,6 +261,14 @@
       collectParallax();
       updateParallax();
     });
+    window.sitio = {
+      recargar: function () {
+        collectParallax();
+        setupObserver();
+        setupMagnetic();
+        updateParallax();
+      }
+    };
   }
 
   if (document.readyState === "loading") {
@@ -284,7 +278,8 @@
   }
 })();
 
-document.querySelector('a[href="#pedir-turno"]').addEventListener('click', function (e) {
+var anclaTurno = document.querySelector('a[href="#pedir-turno"]');
+if (anclaTurno) anclaTurno.addEventListener('click', function (e) {
     e.preventDefault();
 
     const destino = document.getElementById('pedir-turno');
@@ -295,3 +290,233 @@ document.querySelector('a[href="#pedir-turno"]').addEventListener('click', funct
         behavior: 'smooth'
     });
 });
+
+(function () {
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fine = window.matchMedia("(pointer: fine)").matches;
+
+  function progreso() {
+    if (reduce) return;
+    var bar = document.createElement("div");
+    bar.className = "progreso-lectura";
+    document.body.appendChild(bar);
+    function upd() {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var p = max > 0 ? window.scrollY / max : 0;
+      bar.style.transform = "scaleX(" + Math.min(1, Math.max(0, p)).toFixed(4) + ")";
+    }
+    window.addEventListener("scroll", upd, { passive: true });
+    window.addEventListener("resize", upd);
+    upd();
+  }
+
+function marquee() {
+  if (reduce) return;
+
+  const pistas = [...document.querySelectorAll(".carrusel-pista")];
+  if (!pistas.length) return;
+
+  pistas.forEach((pista) => {
+    // Desactiva la animación CSS y deja que JS controle el movimiento.
+    pista.style.animation = "none";
+
+    let posicion = 0;
+    let velocidad = 0;
+    let velocidadObjetivo = 0;
+
+    const duracion = parseFloat(
+      pista.dataset.base ||
+      pista.style.getPropertyValue("--marquee-duration") ||
+      "38"
+    );
+
+    function actualizar() {
+      const mitad = pista.scrollWidth / 2;
+
+      // Velocidad normal calculada según la duración configurada.
+      const velocidadBase = mitad / (duracion * 1000);
+
+      // Si el mouse está encima, el objetivo es detenerse.
+      velocidadObjetivo = pista.matches(":hover")
+        ? 0
+        : velocidadBase;
+
+      // Suaviza muchísimo la aceleración y la frenada.
+      velocidad += (velocidadObjetivo - velocidad) * 0.035;
+
+      posicion -= velocidad * 16.67;
+
+      // Cuando termina la primera copia, vuelve al principio sin salto visible.
+      if (posicion <= -mitad) {
+        posicion += mitad;
+      }
+
+      pista.style.transform = `translate3d(${posicion}px, 0, 0)`;
+
+      requestAnimationFrame(actualizar);
+    }
+
+    actualizar();
+  });
+}
+
+  function palabras() {
+    var nodos = document.querySelectorAll("[data-palabras]");
+    if (!nodos.length) return;
+    [].forEach.call(nodos, function (el) {
+      var i = 0;
+      var piezas = [];
+      [].forEach.call(el.childNodes, function (n) {
+        if (n.nodeType === 3) {
+          n.textContent.split(/\s+/).filter(Boolean).forEach(function (w) {
+            piezas.push({ texto: w, clase: null });
+          });
+        } else if (n.nodeType === 1) {
+          n.textContent.split(/\s+/).filter(Boolean).forEach(function (w) {
+            piezas.push({ texto: w, clase: n.className });
+          });
+        }
+      });
+      el.textContent = "";
+      piezas.forEach(function (p) {
+        var m = document.createElement("span");
+        m.className = "palabra-mascara";
+        var inner = document.createElement("span");
+        inner.textContent = p.texto;
+        if (p.clase) inner.className = p.clase;
+        inner.style.setProperty("--palabra-delay", (i * 0.06).toFixed(2) + "s");
+        i++;
+        m.appendChild(inner);
+        if (/^[.,;:!?)]/.test(p.texto) && el.lastChild && el.lastChild.nodeType === 3) {
+          el.removeChild(el.lastChild);
+        }
+        el.appendChild(m);
+        el.appendChild(document.createTextNode(" "));
+      });
+    });
+    if (reduce) {
+      [].forEach.call(nodos, function (el) { el.classList.add("animado"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        e.target.classList.add("animado");
+      });
+    }, { rootMargin: "0px 0px -10% 0px" });
+    [].forEach.call(nodos, function (el) { io.observe(el); });
+  }
+
+  function cortinas() {
+    var nodos = document.querySelectorAll("[data-parallax]");
+    [].forEach.call(nodos, function (el) { el.classList.add("revelado"); });
+    if (reduce) return;
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        e.target.classList.add("animado");
+      });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    [].forEach.call(nodos, function (el) { io.observe(el); });
+  }
+
+  function estado() {
+    var chip = document.querySelector("[data-estado]");
+    var lista = document.querySelector("[data-horarios]");
+    if (!chip || !lista) return;
+    var txt = chip.querySelector("[data-estado-texto]");
+    var dias = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+    var items = [].slice.call(lista.querySelectorAll("li"));
+    var mapa = {};
+    items.forEach(function (li) {
+      var d = parseInt(li.dataset.dia, 10);
+      var r = (li.dataset.rangos || "").split(",").filter(Boolean).map(function (x) {
+        var p = x.split("-");
+        return [min(p[0]), min(p[1])];
+      });
+      mapa[d] = r;
+    });
+    function min(h) {
+      var p = h.split(":");
+      return parseInt(p[0], 10) * 60 + parseInt(p[1], 10);
+    }
+    var ahora = new Date();
+    var hoy = ahora.getDay();
+    var m = ahora.getHours() * 60 + ahora.getMinutes();
+    items.forEach(function (li) {
+      if (parseInt(li.dataset.dia, 10) === hoy) li.classList.add("hoy");
+    });
+    var abierto = (mapa[hoy] || []).some(function (r) { return m >= r[0] && m < r[1]; });
+    if (abierto) {
+      chip.classList.remove("cerrado");
+      txt.textContent = "Abierto ahora";
+      return;
+    }
+    chip.classList.add("cerrado");
+    var prox = null;
+    for (var i = 0; i < 7; i++) {
+      var d = (hoy + i) % 7;
+      var rangos = mapa[d] || [];
+      for (var j = 0; j < rangos.length; j++) {
+        if (i === 0 && rangos[j][0] <= m) continue;
+        prox = { dia: d, ini: rangos[j][0], hoy: i === 0, manana: i === 1 };
+        break;
+      }
+      if (prox) break;
+    }
+    if (!prox) { txt.textContent = "Cerrado"; return; }
+    var hh = String(Math.floor(prox.ini / 60)).padStart(2, "0") + ":" + String(prox.ini % 60).padStart(2, "0");
+    var cuando = prox.hoy ? "hoy" : prox.manana ? "mañana" : dias[prox.dia];
+    txt.textContent = "Cerrado — abre " + cuando + " " + hh;
+  }
+
+  function ctaFlotante() {
+    if (document.querySelector(".cta-flotante")) return;
+    var a = document.createElement("a");
+    a.className = "cta-flotante";
+    a.href = "https://wa.me/+5491141578654?text=%C2%A1Hola%21%20Quiero%20pedir%20un%20turno%20en%20Odontolog%C3%ADa%20C%26C.";
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.innerHTML = "<span>Pedir turno por WhatsApp</span><span>\u2192</span>";
+    document.body.appendChild(a);
+    function upd() {
+      if (window.scrollY > window.innerHeight * 0.6) a.classList.add("visible");
+      else a.classList.remove("visible");
+    }
+    window.addEventListener("scroll", upd, { passive: true });
+    upd();
+  }
+
+  function tarjetas() {
+    [].forEach.call(document.querySelectorAll(".tarjeta"), function (el) {
+      el.addEventListener("touchstart", function () { el.classList.add("tocada"); }, { passive: true });
+      el.addEventListener("touchend", function () {
+        setTimeout(function () { el.classList.remove("tocada"); }, 400);
+      }, { passive: true });
+    });
+  }
+
+  function init() {
+    progreso();
+    marquee();
+    palabras();
+    cortinas();
+    estado();
+    ctaFlotante();
+    tarjetas();
+    window.extras = {
+      recargar: function () {
+        palabras();
+        cortinas();
+        estado();
+        tarjetas();
+      }
+    };
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
