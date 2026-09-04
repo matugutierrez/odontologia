@@ -1,238 +1,349 @@
-<!DOCTYPE html>
-<html lang="es-AR">
+<!doctype html>
+<html lang="es">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Odontología C&amp;C | Consultorio odontológico en Monte Grande</title>
-<meta name="description" content="Consultorio odontológico integral en Monte Grande. Diagnóstico claro, presupuesto por escrito y turnos por WhatsApp. Av. Enrique Santamarina 629.">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Odontología C&amp;C — Centro odontológico</title>
+  <meta name="description"
+    content="Centro odontológico C&amp;C: tratamientos, consultorio propio y turnos por WhatsApp. Atención con tiempos reales y seguimiento del caso." />
+  <meta name="author" content="Odontología C&amp;C" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Odontología C&amp;C — Centro odontológico" />
+  <meta property="og:description"
+    content="Centro odontológico C&amp;C: tratamientos, consultorio propio y turnos por WhatsApp. Atención con tiempos reales y seguimiento del caso." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/utils.css" />
 </head>
+
 <body>
-<div class="velo"></div>
-<a class="salto" href="#contenido">Ir al contenido</a>
-
-<header class="cabecera">
-  <div class="contenedor barra-superior">
-    <a class="logotipo" href="index.html">
-      <span class="emblema-logo">C&C</span>
-      <span class="nombre-logo">Odontología C&amp;C</span>
-    </a>
-    <nav class="navegacion" aria-label="Navegación principal">
-      <a class="enlace activo" href="index.html">Inicio</a>
-      <a class="enlace" href="tratamientos.html">Tratamientos</a>
-      <a class="enlace" href="casos.html">Casos</a>
-      <a class="enlace" href="consultorio.html">Consultorio</a>
-      <a class="enlace" href="cobertura.html">Cobertura</a>
-      <a class="enlace" href="contacto.html">Contacto</a>
-    </nav>
-    <a class="telefono-cabecera" href="tel:+541141578654">011 4157-8654</a>
-    <a class="boton principal pequeno" href="https://wa.me/5491141578654?text=Hola%2C%20quiero%20pedir%20un%20turno" target="_blank" rel="noopener">Pedir turno</a>
-    <button class="boton-menu" type="button" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="menu-lateral">
+  <div class="cortina" aria-hidden="true"></div>
+  <header class="cabecera">
     <div class="contenedor">
-      <a href="index.html">Inicio</a>
-      <a href="tratamientos.html">Tratamientos</a>
-      <a href="casos.html">Casos</a>
-      <a href="consultorio.html">Consultorio</a>
-      <a href="cobertura.html">Cobertura</a>
-      <a href="contacto.html">Contacto</a>
-      <a class="boton principal" href="https://wa.me/5491141578654?text=Hola%2C%20quiero%20pedir%20un%20turno" target="_blank" rel="noopener">Pedir turno por WhatsApp</a>
-    </div>
-  </div>
-</header>
-
-<main id="contenido">
-
-<section class="portada">
-  <div class="contenedor portada-grilla">
-    <div>
-      <span class="antetitulo" data-reveal>Consultorio odontológico</span>
-      <h1 class="titulo-portada" data-reveal data-delay="1">Odontología integral, con diagnóstico claro y tiempos reales.</h1>
-      <p class="texto-portada" data-reveal data-delay="2">Atendemos a toda la familia en un mismo lugar, en Monte Grande. Explicamos cada paso, te pasamos el costo antes de empezar y trabajamos sin apuro.</p>
-      <div class="acciones-portada" data-reveal data-delay="3">
-        <a class="boton principal" href="https://wa.me/5491141578654?text=Hola%2C%20quiero%20pedir%20un%20turno" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.04A9.94 9.94 0 0 0 2.06 12c0 1.75.46 3.46 1.33 4.97L2 22l5.16-1.35A9.94 9.94 0 1 0 12 2.04zm0 18.13a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.1.81.83-3.03-.19-.31A8.19 8.19 0 1 1 12 20.17z"/><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.13-.42-2.15-1.33-.8-.71-1.34-1.59-1.49-1.89-.15-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.06 3.15 5 4.42.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
-          Pedir turno por WhatsApp
-        </a>
-        <a class="boton secundario" href="tratamientos.html">Ver tratamientos</a>
-      </div>
-    </div>
-    <figure class="imagen-portada" data-reveal data-delay="2">
-      <img src="assets/consultorio.jpg" alt="Consultorio odontológico con equipamiento e iluminación natural" width="1400" height="1050">
-    </figure>
-  </div>
-</section>
-
-<div class="carrusel" aria-hidden="true">
-  <div class="fila-carrusel">
-    <span>Implantes</span><span>Ortodoncia</span><span>Est&eacute;tica dental</span><span>Endodoncia</span><span>Odontopediatr&iacute;a</span><span>Prevenci&oacute;n</span><span>Urgencias</span>
-    <span>Implantes</span><span>Ortodoncia</span><span>Est&eacute;tica dental</span><span>Endodoncia</span><span>Odontopediatr&iacute;a</span><span>Prevenci&oacute;n</span><span>Urgencias</span>
-  </div>
-</div>
-
-<section class="seccion clara">
-  <div class="contenedor">
-    <div class="cabecera-seccion">
-      <span class="antetitulo" data-reveal>Qué resolvemos</span>
-      <h2 class="titulo-seccion" data-reveal data-delay="1">Tratamientos para todas las etapas</h2>
-      <p class="texto-seccion" data-reveal data-delay="2">Desde el control preventivo hasta la rehabilitación completa, con estudios y planificación previa en cada caso.</p>
-    </div>
-    <div class="grilla tres-columnas">
-      <article class="tarjeta" data-reveal>
-        <div class="numero-tarjeta">1</div>
-        <h3 class="titulo-tarjeta">Prevención y limpieza</h3>
-        <p class="texto-tarjeta">Control periódico, detección temprana de caries y enfermedad de encías, con plan de higiene personalizado.</p>
-        <ul class="lista-tarjeta">
-          <li>Limpieza y destartraje</li>
-          <li>Aplicación de flúor</li>
-          <li>Control cada seis meses</li>
-        </ul>
-      </article>
-      <article class="tarjeta" data-reveal data-delay="1">
-        <div class="numero-tarjeta">2</div>
-        <h3 class="titulo-tarjeta">Estética dental</h3>
-        <p class="texto-tarjeta">Blanqueamiento, carillas y restauraciones con previsualización del resultado antes de empezar.</p>
-        <ul class="lista-tarjeta">
-          <li>Blanqueamiento en consultorio</li>
-          <li>Carillas de porcelana</li>
-          <li>Diseño de sonrisa</li>
-        </ul>
-      </article>
-      <article class="tarjeta" data-reveal data-delay="2">
-        <div class="numero-tarjeta">3</div>
-        <h3 class="titulo-tarjeta">Implantes y prótesis</h3>
-        <p class="texto-tarjeta">Reposición de piezas perdidas con implantes de titanio y coronas ajustadas a cada paciente.</p>
-        <ul class="lista-tarjeta">
-          <li>Implantes unitarios</li>
-          <li>Coronas de zirconio</li>
-          <li>Prótesis fijas y removibles</li>
-        </ul>
-      </article>
-    </div>
-    <p style="margin-top: 28px" data-reveal>
-      <a class="boton secundario" href="tratamientos.html">Ver todos los tratamientos</a>
-    </p>
-  </div>
-</section>
-
-<section class="seccion">
-  <div class="contenedor dividido">
-    <div class="media-dividido" data-reveal>
-      <figure class="marco-foto">
-        <img src="assets/equipo.jpg" alt="Profesional odontológico atendiendo en el consultorio" width="1400" height="933">
-      </figure>
-    </div>
-    <div class="cuerpo-dividido">
-      <span class="antetitulo" data-reveal>Cómo trabajamos</span>
-      <h2 class="titulo-seccion" data-reveal data-delay="1">Sin sorpresas y sin letra chica</h2>
-      <p class="texto-seccion" data-reveal data-delay="1">En la primera consulta revisamos tu caso y te explicamos las etapas, los tiempos y el costo del tratamiento.</p>
-      <ul class="lista-check" data-reveal data-delay="2">
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l4.5 4.5L19.5 6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span><strong>Diagnóstico explicado</strong>Te contamos qué encontramos y por qué conviene cada tratamiento, antes de empezar.</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l4.5 4.5L19.5 6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span><strong>Presupuesto antes de empezar</strong>Sabés cuánto sale y cuántas sesiones lleva antes de dar el primer paso.</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l4.5 4.5L19.5 6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span><strong>Turnos programados</strong>Cada paciente tiene su horario asignado, para atender sin apuro.</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l4.5 4.5L19.5 6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span><strong>Bioseguridad</strong>Instrumental esterilizado y material descartable donde corresponde.</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="seccion clara">
-  <div class="contenedor">
-    <div class="cabecera-seccion">
-      <span class="antetitulo" data-reveal>Cobertura y pagos</span>
-      <h2 class="titulo-seccion" data-reveal data-delay="1">Consultá tu cobertura antes de venir</h2>
-      <p class="texto-seccion" data-reveal data-delay="2">Escribinos con el nombre de tu obra social o prepaga y te confirmamos si el consultorio trabaja con ese plan antes de darte el turno.</p>
-    </div>
-    <div class="grupo-etiquetas" data-reveal data-delay="2">
-      <span class="etiqueta">Obras sociales</span>
-      <span class="etiqueta">Prepagas</span>
-      <span class="etiqueta">Atención particular</span>
-      <span class="etiqueta">Consulta de diagnóstico</span>
-      <span class="etiqueta">Urgencias con turno en el día</span>
-    </div>
-    <p style="margin-top: 28px" data-reveal>
-      <a class="boton secundario" href="cobertura.html">Ver detalle de cobertura</a>
-    </p>
-  </div>
-</section>
-
-<section class="franja">
-  <div class="contenedor grilla-franja">
-    <div>
-      <h2 class="titulo-franja">Pedí tu turno por WhatsApp</h2>
-      <p class="texto-franja">Respondemos las consultas el mismo día. Contanos qué necesitás y te confirmamos el horario disponible más cercano.</p>
-    </div>
-    <div class="acciones-franja">
-      <a class="boton claro" href="https://wa.me/5491141578654?text=Hola%2C%20quiero%20pedir%20un%20turno" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.04A9.94 9.94 0 0 0 2.06 12c0 1.75.46 3.46 1.33 4.97L2 22l5.16-1.35A9.94 9.94 0 1 0 12 2.04zm0 18.13a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.1.81.83-3.03-.19-.31A8.19 8.19 0 1 1 12 20.17z"/><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.13-.42-2.15-1.33-.8-.71-1.34-1.59-1.49-1.89-.15-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.06 3.15 5 4.42.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
-        Escribir ahora
+      <a class="marca" href="index.html" aria-label="Inicio">
+        <span class="marca-logo">C&amp;C</span>
+        <span class="marca-subtexto">Odontología</span>
       </a>
-      <a class="boton contorno" href="tel:+541141578654">Llamar al 011 4157-8654</a>
+      <div class="cabecera-derecha">
+        <span class="pagina-actual">1 / Inicio</span>
+        <span data-magnetic="0.35">
+          <button type="button" class="boton-menu" data-menu-btn aria-expanded="false" aria-label="Abrir menú">
+            <span data-menu-label>Menú</span>
+            <span class="icono-menu" aria-hidden="true"><span></span><span></span></span>
+          </button>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu">
+    <div class="contenedor">
+      <nav class="menu-lista">
+        <span class="menu-fila"><a class="menu-enlace activo" href="index.html"><span class="menu-numero">1</span><span
+              class="menu-texto titulo-grande">Inicio</span><span class="menu-aqui">Estás acá</span></a></span>
+        <span class="menu-fila"><a class="menu-enlace" href="tratamientos.html"><span class="menu-numero">2</span><span
+              class="menu-texto titulo-grande">Tratamientos</span></a></span>
+        <span class="menu-fila"><a class="menu-enlace" href="obras-sociales.html"><span class="menu-numero">3</span><span
+              class="menu-texto titulo-grande">Obras sociales</span></a></span>
+        <span class="menu-fila"><a class="menu-enlace" href="consultorio.html"><span class="menu-numero">4</span><span
+              class="menu-texto titulo-grande">El consultorio</span></a></span>
+        <span class="menu-fila"><a class="menu-enlace" href="tecnologia.html"><span class="menu-numero">5</span><span
+              class="menu-texto titulo-grande">Tecnología</span></a></span>
+        <span class="menu-fila"><a class="menu-enlace" href="quienes-somos.html"><span class="menu-numero">6</span><span
+              class="menu-texto titulo-grande">Quiénes somos</span></a></span>
+      </nav>
+      <div class="menu-info">
+        <p class="fuente-texto parrafo-chico opacidad-60" style="max-width:20rem">Odontología C&amp;C — atención odontológica con tiempos
+          reales y seguimiento del caso.</p>
+        <p class="texto-mono-10 mayusculas opacidad-60" style="line-height:2">Dirección — Av. Enrique Santamarina 629<br />WhatsApp +54 9 11
+          4157-8654</p>
+        <p class="texto-mono-10 mayusculas opacidad-40 med-td">Menú — 7 secciones</p>
+      </div>
     </div>
   </div>
-</section>
 
-
-</main>
-
-<footer class="pie-pagina">
-  <div class="contenedor">
-    <div class="grilla-pie">
-      <div>
-        <span class="logo-pie"><span class="emblema-logo">CC</span> Odontología C&amp;C</span>
-        <p class="texto-pie">Consultorio odontológico integral. Atención para toda la familia con turno programado.</p>
+  <main>
+    <section class="fondo-claro relativo alto-pantalla oculto-desborde relleno-arriba-32">
+      <div class="contenedor">
+        <h1 class="titulo-xl mayusculas" data-split data-delay="0.15" data-trigger="load"><span class="linea-mascara"><span
+              data-line-inner>Precisión</span></span><span class="linea-mascara"><span data-line-inner>que
+              se</span></span><span class="linea-mascara"><span data-line-inner>siente calma</span></span></h1>
+        <div class="grilla espacio-10 margen-arriba-14 med-columnas-12">
+          <div class="med-cs-4" data-reveal data-delay="0.6">
+            <p class="fuente-texto parrafo opacidad-70" style="max-width:38ch">Odontología C&amp;C es un centro odontológico donde
+              cada caso se estudia antes de tratarse. Sin apuros y sin recetas iguales para todos.</p>
+            <div class="margen-arriba-8"><span data-magnetic="0.25"><a class="boton boton-solido"
+                  href="https://wa.me/+5491141578654?text=%C2%A1Hola%21%20Quiero%20pedir%20un%20turno%20en%20Odontolog%C3%ADa%20C%26C."
+                  target="_blank" rel="noopener noreferrer"><span class="relativo">Pedir turno por WhatsApp</span><span
+                    class="flecha">→</span></a></span></div>
+          </div>
+          <div class="med-cs-8">
+            <div class="aspecto-16-10 ancho-completo" data-parallax data-amount="80"><img src="assets/clinic-wide.jpg"
+                alt="Consultorio de Odontología C&amp;C con luz natural" width="1600" height="1008" loading="eager"
+                decoding="async" /></div>
+          </div>
+        </div>
       </div>
-      <div>
-        <div class="titulo-pie">Secciones</div>
-        <ul class="lista-pie">
-          <li><a href="tratamientos.html">Tratamientos</a></li>
-          <li><a href="casos.html">Casos</a></li>
-          <li><a href="consultorio.html">Consultorio</a></li>
-          <li><a href="cobertura.html">Cobertura</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="titulo-pie">Contacto</div>
-        <ul class="lista-pie">
-          <li><a href="tel:+541141578654">011 4157-8654</a></li>
-          <li><a href="https://wa.me/5491141578654" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li>Av. Enrique Santamarina 629</li>
-          <li>Monte Grande, Buenos Aires</li>
-        </ul>
+    </section>
+
+    <div class="fondo-celeste borde-vertical relleno-vert-6">
+      <div class="carrusel" aria-hidden="true">
+        <div class="carrusel-pista" style="--marquee-duration:38s"><span class="carrusel-item"><span
+              class="titulo-mediano">Diagnóstico</span><span class="carrusel-punto"></span></span><span
+            class="carrusel-item"><span class="titulo-mediano">Tratamiento</span><span class="carrusel-punto"></span></span><span
+            class="carrusel-item"><span class="titulo-mediano">Seguimiento</span><span class="carrusel-punto"></span></span><span
+            class="carrusel-item"><span class="titulo-mediano">Prevención</span><span class="carrusel-punto"></span></span><span
+            class="carrusel-item"><span class="titulo-mediano">Rehabilitación</span><span
+              class="carrusel-punto"></span></span><span class="carrusel-item"><span
+              class="titulo-mediano">Diagnóstico</span><span class="carrusel-punto"></span></span><span
+            class="carrusel-item"><span class="titulo-mediano">Tratamiento</span><span class="carrusel-punto"></span></span><span
+            class="carrusel-item"><span class="titulo-mediano">Seguimiento</span><span class="carrusel-punto"></span></span><span
+            class="carrusel-item"><span class="titulo-mediano">Prevención</span><span class="carrusel-punto"></span></span><span
+            class="carrusel-item"><span class="titulo-mediano">Rehabilitación</span><span class="carrusel-punto"></span></span>
+        </div>
       </div>
     </div>
-    <div class="legal-pie">
-      <span>Odontología C&amp;C. Todos los derechos reservados <span data-year>2026</span>.</span>
-      <span>Atención con turno previo</span>
+
+<section id="pedir-turno" class="fondo-celeste alto-pantalla relleno-abajo-24 relleno-arriba-36 med-ra-44">
+      <div class="contenedor">
+        <h1 class="titulo-xl mayusculas" data-split data-delay="0.1" data-trigger="load"><span class="linea-mascara"><span
+              data-line-inner>Pedir</span></span><span class="linea-mascara"><span data-line-inner>turno</span></span></h1>
+        <div class="grilla espacio-16 margen-arriba-16 med-columnas-12">
+          <div class="med-cs-7">
+            <div class="cabecera-seccion"><span class="etiqueta">(1)</span><span class="etiqueta">Escribinos por WhatsApp</span>
+            </div>
+            <div class="margen-arriba-10" data-reveal data-y="30">
+              <p class="fuente-texto parrafo opacidad-70" style="max-width:42ch">No hace falta formulario. Elegí el motivo, se abre
+                WhatsApp con el mensaje ya escrito y te respondemos con los horarios disponibles.</p>
+              <div class="margen-arriba-10"><span data-magnetic="0.25"><a class="boton boton-solido"
+                    href="https://wa.me/+5491141578654?text=%C2%A1Hola%21%20Quiero%20pedir%20un%20turno%20en%20Odontolog%C3%ADa%20C%26C."
+                    target="_blank" rel="noopener noreferrer"><span class="relativo">Pedir turno ahora</span><span
+                      class="flecha">→</span></a></span></div>
+            </div>
+            <div class="margen-arriba-16">
+              <div class="cabecera-seccion"><span class="etiqueta">(2)</span><span class="etiqueta">O elegí el motivo</span></div>
+              <div class="grilla-tarjetas margen-arriba-8 peq-columnas-2">
+                <div class="tarjeta relleno-6">
+                  <p class="fuente-titulo texto-grande">Implantología</p>
+                  <p class="margen-arriba-2 fuente-texto parrafo-chico opacidad-60">Rehabilitación de piezas ausentes con planificación previa.</p>
+                  <div class="margen-arriba-5"><span data-magnetic="0.25"><a class="boton boton-borde"
+                        href="https://wa.me/+5491141578654?text=%C2%A1Hola%21%20Quiero%20pedir%20un%20turno%20por%20Implantolog%C3%ADa%20en%20Odontolog%C3%ADa%20C%26C."
+                        target="_blank" rel="noopener noreferrer"><span class="relativo">Consultar</span><span
+                          class="flecha">→</span></a></span></div>
+                </div>
+                <div class="tarjeta relleno-6">
+                  <p class="fuente-titulo texto-grande">Estética dental</p>
+                  <p class="margen-arriba-2 fuente-texto parrafo-chico opacidad-60">Forma, color y proporción trabajados con criterio conservador.
+                  </p>
+                  <div class="margen-arriba-5"><span data-magnetic="0.25"><a class="boton boton-borde"
+                        href="https://wa.me/+5491141578654?text=%C2%A1Hola%21%20Quiero%20pedir%20un%20turno%20por%20Est%C3%A9tica%20dental%20en%20Odontolog%C3%ADa%20C%26C."
+                        target="_blank" rel="noopener noreferrer"><span class="relativo">Consultar</span><span
+                          class="flecha">→</span></a></span></div>
+                </div>
+                <div class="tarjeta relleno-6">
+                  <p class="fuente-titulo texto-grande">Ortodoncia</p>
+                  <p class="margen-arriba-2 fuente-texto parrafo-chico opacidad-60">Corrección de la posición dentaria con seguimiento cercano.</p>
+                  <div class="margen-arriba-5"><span data-magnetic="0.25"><a class="boton boton-borde"
+                        href="https://wa.me/+5491141578654?text=%C2%A1Hola%21%20Quiero%20pedir%20un%20turno%20por%20Ortodoncia%20en%20Odontolog%C3%ADa%20C%26C."
+                        target="_blank" rel="noopener noreferrer"><span class="relativo">Consultar</span><span
+                          class="flecha">→</span></a></span></div>
+                </div>
+                <div class="tarjeta relleno-6">
+                  <p class="fuente-titulo texto-grande">Endodoncia</p>
+                  <p class="margen-arriba-2 fuente-texto parrafo-chico opacidad-60">Tratamiento del conducto radicular para conservar la pieza.</p>
+                  <div class="margen-arriba-5"><span data-magnetic="0.25"><a class="boton boton-borde"
+                        href="https://wa.me/+5491141578654?text=%C2%A1Hola%21%20Quiero%20pedir%20un%20turno%20por%20Endodoncia%20en%20Odontolog%C3%ADa%20C%26C."
+                        target="_blank" rel="noopener noreferrer"><span class="relativo">Consultar</span><span
+                          class="flecha">→</span></a></span></div>
+                </div>
+                <div class="tarjeta relleno-6">
+                  <p class="fuente-titulo texto-grande">Periodoncia</p>
+                  <p class="margen-arriba-2 fuente-texto parrafo-chico opacidad-60">Salud de encías y tejidos de soporte.</p>
+                  <div class="margen-arriba-5"><span data-magnetic="0.25"><a class="boton boton-borde"
+                        href="https://wa.me/+5491141578654?text=%C2%A1Hola%21%20Quiero%20pedir%20un%20turno%20por%20Periodoncia%20en%20Odontolog%C3%ADa%20C%26C."
+                        target="_blank" rel="noopener noreferrer"><span class="relativo">Consultar</span><span
+                          class="flecha">→</span></a></span></div>
+                </div>
+                <div class="tarjeta relleno-6">
+                  <p class="fuente-titulo texto-grande">Prevención</p>
+                  <p class="margen-arriba-2 fuente-texto parrafo-chico opacidad-60">Controles periódicos, higiene profesional y seguimiento.</p>
+                  <div class="margen-arriba-5"><span data-magnetic="0.25"><a class="boton boton-borde"
+                        href="https://wa.me/+5491141578654?text=%C2%A1Hola%21%20Quiero%20pedir%20un%20turno%20por%20Prevenci%C3%B3n%20en%20Odontolog%C3%ADa%20C%26C."
+                        target="_blank" rel="noopener noreferrer"><span class="relativo">Consultar</span><span
+                          class="flecha">→</span></a></span></div>
+                </div>
+              </div>
+              <div class="margen-arriba-8"><span data-magnetic="0.25"><a class="boton boton-borde"
+                    href="https://wa.me/+5491141578654?text=%C2%A1Hola%21%20Tengo%20una%20consulta%20sobre%20los%20tratamientos%20de%20Odontolog%C3%ADa%20C%26C."
+                    target="_blank" rel="noopener noreferrer"><span class="relativo">Otro motivo / no lo sé</span><span
+                      class="flecha">→</span></a></span></div>
+            </div>
+          </div>
+          <aside class="med-cs-4 med-ci-9">
+            <div class="cabecera-seccion"><span class="etiqueta">(3)</span><span class="etiqueta">Datos del centro</span></div>
+            <dl class="margen-arriba-10 separacion-y-8">
+              <div>
+                <dt class="etiqueta">Dirección</dt>
+                <dd class="margen-arriba-2 fuente-titulo texto-xl opacidad-70">Dirección — Av. Enrique Santamarina 629</dd>
+              </div>
+              <div>
+                <dt class="etiqueta">WhatsApp</dt>
+                <dd class="margen-arriba-2 fuente-titulo texto-xl opacidad-70">+54 9 11 4157-8654</dd>
+              </div>
+              <div>
+                <dt class="etiqueta">Horarios</dt>
+                <dd class="margen-arriba-2 separacion-y-1 fuente-texto texto-chico opacidad-70">
+                  <p>Lunes — 8:30-11:30 / 13:00-16:30</p>
+                  <p> Martes — 15:30–19:30</p>
+                  <p> Miercoles — 9:00–11:00 / 14:00–18:30</p>
+                  <p> Jueves — 15:00–18:30</p> 
+                  <p> Viernes — Cerrado</p> 
+                  <p> Sabados — 10:00–14:00</p>
+                  <p> Domingos —  Cerrado  </p>
+                </dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="fondo-claro relleno-vert-24 med-rv-32">
+      <div class="contenedor">
+        <div class="cabecera-seccion"><span class="etiqueta">(4)</span><span class="etiqueta">Recorrido</span><span
+            class="derecha etiqueta">6</span></div>
+        <div class="margen-arriba-12" data-reveal data-y="40" style="max-width:16ch">
+          <h2 class="titulo-grande">Cada tema, <span class="texto-verde">en su lugar</span>.</h2>
+        </div>
+        <div class="margen-arriba-14"><a class="fila-indice" href="tratamientos.html"><span
+              class="col-span-2 med-cs-1 texto-mono-11 opacidad-50">2</span><span
+              class="nombre-indice titulo-mediano col-span-10 med-cs-6">Tratamientos</span><span
+              class="col-span-12 med-cs-5 fuente-texto texto-chico opacidad-60">Qué hacemos y cómo trabajamos cada especialidad.</span></a><a
+            class="fila-indice" href="obras-sociales.html"><span class="col-span-2 med-cs-1 texto-mono-11 opacidad-50">3</span><span
+              class="nombre-indice titulo-mediano col-span-10 med-cs-6">Obras sociales</span><span
+              class="col-span-12 med-cs-5 fuente-texto texto-chico opacidad-60">Las coberturas que atendemos y cómo consultar tu
+              plan.</span></a><a class="fila-indice" href="consultorio.html"><span
+              class="col-span-2 med-cs-1 texto-mono-11 opacidad-50">4</span><span class="nombre-indice titulo-mediano col-span-10 med-cs-6">El
+              consultorio</span><span class="col-span-12 med-cs-5 fuente-texto texto-chico opacidad-60">Cómo es el lugar donde te vamos a
+              atender.</span></a><a class="fila-indice" href="tecnologia.html"><span
+              class="col-span-2 med-cs-1 texto-mono-11 opacidad-50">5</span><span
+              class="nombre-indice titulo-mediano col-span-10 med-cs-6">Tecnología</span><span
+              class="col-span-12 med-cs-5 fuente-texto texto-chico opacidad-60">El equipamiento con el que trabajamos.</span></a><a
+            class="fila-indice" href="quienes-somos.html"><span class="col-span-2 med-cs-1 texto-mono-11 opacidad-50">6</span><span
+              class="nombre-indice titulo-mediano col-span-10 med-cs-6">Quiénes somos</span><span
+              class="col-span-12 med-cs-5 fuente-texto texto-chico opacidad-60">El equipo y la forma de trabajo del centro.</span></a><a
+            class="fila-indice" href="#pedir-turno"><span class="col-span-2 med-cs-1 texto-mono-11 opacidad-50">7</span><span
+              class="nombre-indice titulo-mediano col-span-10 med-cs-6">Turnos</span><span
+              class="col-span-12 med-cs-5 fuente-texto texto-chico opacidad-60">Pedí tu turno por WhatsApp en un minuto.</span></a></div>
+        <div class="margen-arriba-12"><span data-magnetic="0.22"><a class="enlace-flecha" href="tratamientos.html">Empezar por los
+              tratamientos<span class="barra"></span></a></span></div>
+      </div>
+    </section>
+
+    <section class="fondo-celeste relleno-vert-24 med-rv-32">
+      <div class="contenedor">
+        <div class="cabecera-seccion"><span class="etiqueta">(5)</span><span class="etiqueta">Obras sociales</span></div>
+        <div class="grilla espacio-12 margen-arriba-12 med-columnas-12">
+          <div class="med-cs-4">
+            <div data-reveal data-y="40">
+              <h2 class="titulo-mediano" style="max-width:14ch">Trabajamos con las principales <span
+                  class="texto-verde">coberturas</span>.</h2>
+              <p class="margen-arriba-6 fuente-texto parrafo-chico opacidad-70" style="max-width:38ch">Tocá tu obra social o prepaga para ir a su
+                sitio. Si no sabés qué cubre tu plan, escribinos por WhatsApp y lo vemos juntos.</p>
+              <div class="margen-arriba-8"><span data-magnetic="0.22"><a class="enlace-flecha" href="obras-sociales.html">Ver
+                    todas<span class="barra"></span></a></span></div>
+            </div>
+          </div>
+          <div class="med-cs-8">
+            <div class="grilla-coberturas"><a class="celda-cobertura" href="https://www.osde.com.ar" target="_blank"
+                rel="noopener noreferrer" aria-label="Ir al sitio de OSDE"><img src="assets/logos/osde.png"
+                  alt="Logo de OSDE" loading="lazy" /><span class="etiqueta externo">↗</span></a><a class="celda-cobertura"
+                href="https://www.swissmedical.com.ar" target="_blank" rel="noopener noreferrer"
+                aria-label="Ir al sitio de Swiss Medical"><img src="assets/logos/swiss.png" alt="Logo de Swiss Medical"
+                  loading="lazy" /><span class="etiqueta externo">↗</span></a><a class="celda-cobertura"
+                href="https://www.galiciaseguros.com.ar" target="_blank" rel="noopener noreferrer"
+                aria-label="Ir al sitio de Galicia Seguros"><img src="assets/logos/galicia.png"
+                  alt="Logo de Galicia Seguros" loading="lazy" /><span class="etiqueta externo">↗</span></a><a
+                class="celda-cobertura" href="https://www.medife.com.ar" target="_blank" rel="noopener noreferrer"
+                aria-label="Ir al sitio de Medifé"><img src="assets/logos/medife.png" alt="Logo de Medifé"
+                  loading="lazy" /><span class="etiqueta externo">↗</span></a><a class="celda-cobertura"
+                href="https://www.omint.com.ar" target="_blank" rel="noopener noreferrer"
+                aria-label="Ir al sitio de Omint"><img src="assets/logos/omint.png" alt="Logo de Omint"
+                  loading="lazy" /><span class="etiqueta externo">↗</span></a><a class="celda-cobertura"
+                href="https://www.pami.org.ar" target="_blank" rel="noopener noreferrer"
+                aria-label="Ir al sitio de PAMI"><img src="assets/logos/pami.png" alt="Logo de PAMI"
+                  loading="lazy" /><span class="etiqueta externo">↗</span></a><a class="celda-cobertura"
+                href="https://www.iosfa.gob.ar" target="_blank" rel="noopener noreferrer"
+                aria-label="Ir al sitio de IOSFA"><img src="assets/logos/iosfa.png" alt="Logo de IOSFA"
+                  loading="lazy" /><span class="etiqueta externo">↗</span></a><a class="celda-cobertura"
+                href="https://www.osseg.org.ar" target="_blank" rel="noopener noreferrer"
+                aria-label="Ir al sitio de OSSEG"><img src="assets/logos/osseg.png" alt="Logo de OSSEG"
+                  loading="lazy" /><span class="etiqueta externo">↗</span></a><a class="celda-cobertura"
+                href="https://federada.com" target="_blank" rel="noopener noreferrer"
+                aria-label="Ir al sitio de Federada Salud"><img src="assets/logos/federada.png"
+                  alt="Logo de Federada Salud" loading="lazy" /><span class="etiqueta externo">↗</span></a><a
+                class="celda-cobertura" href="https://www.amffa.com.ar" target="_blank" rel="noopener noreferrer"
+                aria-label="Ir al sitio de AMFFA Salud"><img src="assets/logos/amffa.png" alt="Logo de AMFFA Salud"
+                  loading="lazy" /><span class="etiqueta externo">↗</span></a><a class="celda-cobertura"
+                href="https://dasuten.frbb.utn.edu.ar" target="_blank" rel="noopener noreferrer"
+                aria-label="Ir al sitio de DASUTEN"><img src="assets/logos/dasuten.png" alt="Logo de DASUTEN"
+                  loading="lazy" /><span class="etiqueta externo">↗</span></a>
+              <div class="celda-cobertura" aria-hidden="true"><span class="mas-coberturas">Y más...</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="margen-arriba-12"><span data-magnetic="0.25"><a class="boton boton-solido"
+              href="https://wa.me/+5491141578654?text=%C2%A1Hola%21%20Quiero%20consultar%20si%20atienden%20mi%20obra%20social%20o%20prepaga%20en%20Odontolog%C3%ADa%20C%26C."
+              target="_blank" rel="noopener noreferrer"><span class="relativo">Consultar por WhatsApp</span><span
+                class="flecha">→</span></a></span></div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="fondo-celeste">
+    <div class="contenedor relleno-vert-20 med-rv-28">
+      <div class="grilla espacio-14 med-columnas-12">
+        <div class="med-cs-7">
+          <h2 class="titulo-grande" style="max-width:12ch">Empecemos por una <span class="texto-verde">consulta</span>.</h2>
+          <div class="margen-arriba-10"><span data-magnetic="0.25"><a class="boton boton-solido"
+                href="https://wa.me/+5491141578654?text=%C2%A1Hola%21%20Quiero%20pedir%20un%20turno%20en%20Odontolog%C3%ADa%20C%26C."
+                target="_blank" rel="noopener noreferrer"><span class="relativo">Pedir turno por WhatsApp</span><span
+                  class="flecha">→</span></a></span></div>
+        </div>
+        <div class="grilla espacio-10 med-cs-5 med-columnas-2">
+          <div>
+            <p class="etiqueta">Navegación</p>
+            <ul class="margen-arriba-5 separacion-y-2">
+              <li><a class="fuente-texto texto-chico opacidad-70" href="index.html">Inicio</a></li>
+              <li><a class="fuente-texto texto-chico opacidad-70" href="tratamientos.html">Tratamientos</a></li>
+              <li><a class="fuente-texto texto-chico opacidad-70" href="obras-sociales.html">Obras sociales</a></li>
+              <li><a class="fuente-texto texto-chico opacidad-70" href="consultorio.html">El consultorio</a></li>
+              <li><a class="fuente-texto texto-chico opacidad-70" href="tecnologia.html">Tecnología</a></li>
+              <li><a class="fuente-texto texto-chico opacidad-70" href="quienes-somos.html">Quiénes somos</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="etiqueta">Contacto</p>
+            <ul class="margen-arriba-5 separacion-y-2 fuente-texto texto-chico opacidad-70">
+              <li>Dirección — Av. Enrique Santamarina 629</li>
+              <li>WhatsApp +54 9 11 4157-8654</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="margen-arriba-20 flexible columna espacio-3 borde-arriba relleno-arriba-6 peq-fila peq-ac peq-je">
+        <span class="fuente-titulo texto-xl" style="letter-spacing:-0.05em">Odontología C&amp;C</span>
+        <span class="etiqueta">© 2026 — Todos los derechos reservados</span>
+      </div>
     </div>
-  </div>
-</footer>
-
-<a class="boton-whatsapp" href="https://wa.me/5491141578654?text=Hola%2C%20quiero%20pedir%20un%20turno" target="_blank" rel="noopener">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.04A9.94 9.94 0 0 0 2.06 12c0 1.75.46 3.46 1.33 4.97L2 22l5.16-1.35A9.94 9.94 0 1 0 12 2.04zm0 18.13a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.1.81.83-3.03-.19-.31A8.19 8.19 0 1 1 12 20.17z"/><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.13-.42-2.15-1.33-.8-.71-1.34-1.59-1.49-1.89-.15-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.06 3.15 5 4.42.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
-  Pedir turno
-</a>
-
-<script src="script.js"></script>
+  </footer>
+  <script src="js/site.js" defer></script>
 </body>
+
 </html>
