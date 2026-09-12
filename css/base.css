@@ -348,7 +348,7 @@ h3 {
 
 @media (width >= 40rem) {
   .marca-subtexto {
-    display: block;
+    display: none;
   }
 }
 
