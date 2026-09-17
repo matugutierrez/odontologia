@@ -344,22 +344,6 @@
   }
 
   function rayos() {
-    var logo = document.querySelector(".marca-logo");
-    if (!logo) return;
-    var golpes = 0;
-    var reloj = null;
-    logo.addEventListener("click", function (e) {
-      e.preventDefault();
-      golpes++;
-      clearTimeout(reloj);
-      reloj = setTimeout(function () {
-        golpes = 0;
-      }, 600);
-      if (golpes >= 3) {
-        golpes = 0;
-        document.body.classList.toggle("rayos");
-      }
-    });
   }
 
   function profundidad() {
