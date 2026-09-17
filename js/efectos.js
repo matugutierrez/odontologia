@@ -387,10 +387,26 @@
       var etiqueta = doc.querySelector(".pagina-actual");
       var actual = document.querySelector(".pagina-actual");
       if (etiqueta && actual) actual.textContent = etiqueta.textContent;
+
+      var baseFile = url.split("?")[0].split("#")[0].split("/").pop();
+      if (baseFile === "index.html" || baseFile === "inicio.html" || baseFile === "inicio" || baseFile === "") {
+        baseFile = "./";
+      }
+
       [].forEach.call(document.querySelectorAll(".menu-enlace"), function (a) {
-        a.classList.toggle("activo", a.getAttribute("href") === url.split("/").pop());
+        var href = a.getAttribute("href");
+        if (href === "index.html" || href === "inicio.html" || href === "inicio") href = "./";
+        a.classList.toggle("activo", href === baseFile);
       });
-      if (empuje) history.pushState({ sitio: true }, "", url);
+
+      var displayUrl = url;
+      if (displayUrl.endsWith("index.html") || displayUrl.endsWith("inicio.html")) {
+        displayUrl = displayUrl.replace(/(index\.html|inicio\.html)$/, "./");
+      } else if (displayUrl.endsWith(".html")) {
+        displayUrl = displayUrl.slice(0, -5);
+      }
+
+      if (empuje) history.pushState({ sitio: true }, "", displayUrl);
       window.scrollTo(0, 0);
       if (window.sitio) window.sitio.recargar();
       if (window.extras) window.extras.recargar();
@@ -404,7 +420,15 @@
       velo.style.setProperty("--vy", y + "px");
       velo.classList.remove("sale");
       velo.classList.add("entra");
-      var listo = fetch(url, { headers: { "x-parcial": "1" } }).then(function (r) {
+
+      var fetchUrl = url;
+      if (fetchUrl === "./" || fetchUrl === "/" || fetchUrl === "inicio") {
+        fetchUrl = "index.html";
+      } else if (!fetchUrl.endsWith(".html") && fetchUrl.indexOf(".") === -1) {
+        fetchUrl = fetchUrl + ".html";
+      }
+
+      var listo = fetch(fetchUrl, { headers: { "x-parcial": "1" } }).then(function (r) {
         if (!r.ok) throw new Error("fallo");
         return r.text();
       });
@@ -413,7 +437,7 @@
       });
       Promise.all([listo, espera])
         .then(function (v) {
-          pintar(v[0], url, empuje);
+          pintar(v[0], fetchUrl, empuje);
           requestAnimationFrame(function () {
             velo.classList.remove("entra");
             velo.classList.add("sale");
@@ -423,7 +447,7 @@
           });
         })
         .catch(function () {
-          window.location.href = url;
+          window.location.href = fetchUrl;
         });
     }
 
@@ -440,11 +464,19 @@
         var boton = document.querySelector("[data-menu-btn]");
         if (boton) boton.click();
       }
-      ir(href, e.clientX, e.clientY, true);
+      var targetUrl = href;
+      if (targetUrl === "index.html" || targetUrl === "inicio.html" || targetUrl === "inicio") {
+        targetUrl = "./";
+      }
+      ir(targetUrl, e.clientX, e.clientY, true);
     });
 
     window.addEventListener("popstate", function () {
-      ir(window.location.pathname.split("/").pop() || "index.html", window.innerWidth / 2, window.innerHeight / 2, false);
+      var path = window.location.pathname.split("/").pop();
+      if (!path || path === "index.html" || path === "inicio" || path === "inicio.html") {
+        path = "./";
+      }
+      ir(path, window.innerWidth / 2, window.innerHeight / 2, false);
     });
   }
 
