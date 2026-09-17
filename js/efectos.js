@@ -390,12 +390,11 @@
 
       var baseFile = url.split("?")[0].split("#")[0].split("/").pop();
       if (baseFile === "index.html" || baseFile === "inicio.html" || baseFile === "inicio" || baseFile === "") {
-        baseFile = "./";
+        baseFile = "inicio.html";
       }
 
       [].forEach.call(document.querySelectorAll(".menu-enlace"), function (a) {
         var href = a.getAttribute("href");
-        if (href === "index.html" || href === "inicio.html" || href === "inicio") href = "./";
         a.classList.toggle("activo", href === baseFile);
       });
 
@@ -422,8 +421,8 @@
       velo.classList.add("entra");
 
       var fetchUrl = url;
-      if (fetchUrl === "./" || fetchUrl === "/" || fetchUrl === "inicio") {
-        fetchUrl = "index.html";
+      if (fetchUrl === "./" || fetchUrl === "/" || fetchUrl === "inicio" || fetchUrl === "index.html") {
+        fetchUrl = "inicio.html";
       } else if (!fetchUrl.endsWith(".html") && fetchUrl.indexOf(".") === -1) {
         fetchUrl = fetchUrl + ".html";
       }
@@ -465,16 +464,13 @@
         if (boton) boton.click();
       }
       var targetUrl = href;
-      if (targetUrl === "index.html" || targetUrl === "inicio.html" || targetUrl === "inicio") {
-        targetUrl = "./";
-      }
       ir(targetUrl, e.clientX, e.clientY, true);
     });
 
     window.addEventListener("popstate", function () {
       var path = window.location.pathname.split("/").pop();
       if (!path || path === "index.html" || path === "inicio" || path === "inicio.html") {
-        path = "./";
+        path = "inicio.html";
       }
       ir(path, window.innerWidth / 2, window.innerHeight / 2, false);
     });
