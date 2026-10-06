@@ -1433,11 +1433,10 @@ display: none;
 
   .foto-menu img {
     display: block; 
-    margin-left: 5.2rem;
     width: 100%;
     max-width: 9rem;
     height: auto;
-    margin-top: 0rem;
+    margin: 0 auto;
   }
 
   .relative img {
