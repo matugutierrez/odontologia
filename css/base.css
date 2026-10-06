@@ -1283,6 +1283,9 @@ border-radius: 1px;
 .boton-icono .tipeo.completo::after {
   animation: parpadeo 1s steps(1) infinite;
 }
+.suelta-3 {
+display: none;
+}
 
 @keyframes parpadeo {
   50% {
