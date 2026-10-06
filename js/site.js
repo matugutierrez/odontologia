@@ -318,7 +318,6 @@ function marquee() {
   if (!pistas.length) return;
 
   pistas.forEach((pista) => {
-    // Desactiva la animación CSS y deja que JS controle el movimiento.
     pista.style.animation = "none";
 
     let posicion = 0;
@@ -334,20 +333,16 @@ function marquee() {
     function actualizar() {
       const mitad = pista.scrollWidth / 2;
 
-      // Velocidad normal calculada según la duración configurada.
       const velocidadBase = mitad / (duracion * 1000);
 
-      // Si el mouse está encima, el objetivo es detenerse.
       velocidadObjetivo = pista.matches(":hover")
         ? 0
         : velocidadBase;
 
-      // Suaviza muchísimo la aceleración y la frenada.
       velocidad += (velocidadObjetivo - velocidad) * 0.035;
 
       posicion -= velocidad * 16.67;
 
-      // Cuando termina la primera copia, vuelve al principio sin salto visible.
       if (posicion <= -mitad) {
         posicion += mitad;
       }
@@ -480,7 +475,8 @@ function marquee() {
     a.href = "https://wa.me/+5491141578654?text=%C2%A1Hola%21%20Quiero%20pedir%20un%20turno%20en%20Odontolog%C3%ADa%20C%26C.";
     a.target = "_blank";
     a.rel = "noopener noreferrer";
-    a.innerHTML = "<span>Pedir turno por WhatsApp</span><span>\u2192</span>";
+    a.setAttribute("aria-label", "Pedir turno por WhatsApp");
+    a.innerHTML = '<img src="whatsapp.png" alt="WhatsApp">';
     document.body.appendChild(a);
     function upd() {
       if (window.scrollY > window.innerHeight * 0.6) a.classList.add("visible");
@@ -519,4 +515,5 @@ function marquee() {
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
+  
 })();
