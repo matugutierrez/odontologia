@@ -482,7 +482,6 @@
     mezcla();
     contadores();
     profundidad();
-    tipeoBotones();
   }
 
   function arrancar() {
@@ -494,78 +493,4 @@
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", arrancar);
   else arrancar();
-
-
-  document.addEventListener("DOMContentLoaded", function() {
-    const acordeones = document.querySelectorAll(".acordeon-item");
-
-    acordeones.forEach(acordeon => {
-        const icono = acordeon.querySelector(".acordeon-icono");
-
-        icono.addEventListener("click", () => {
-            const estaAbierto = acordeon.classList.contains("abierto");
-
-            acordeones.forEach(item => {
-                item.classList.remove("abierto");
-                item.querySelector(".acordeon-icono").textContent = "+";
-            });
-
-            if (!estaAbierto) {
-                acordeon.classList.add("abierto");
-                icono.textContent = "-";
-            }
-        });
-    });
-});
-function tipeoBotones() {
-    [].forEach.call(document.querySelectorAll("[data-tipeo]"), function (enlace) {
-      if (enlace.dataset.tipeoOk) return;
-      enlace.dataset.tipeoOk = "1";
-      var destino = enlace.querySelector(".tipeo");
-      if (!destino) return;
-      var texto = enlace.getAttribute("data-tipeo") || "";
-      var timer = null;
-
-      function escribir() {
-        clearInterval(timer);
-        destino.textContent = "";
-        destino.classList.remove("completo");
-        destino.classList.add("con-cursor", "escribiendo");
-        var i = 0;
-        timer = setInterval(function () {
-          i++;
-          destino.textContent = texto.slice(0, i);
-          if (i >= texto.length) {
-            clearInterval(timer);
-            destino.classList.remove("escribiendo");
-            destino.classList.add("completo");
-          }
-        }, 40);
-      }
-
-      function borrar() {
-        clearInterval(timer);
-        destino.classList.remove("completo");
-        destino.classList.add("con-cursor");
-        var i = destino.textContent.length;
-        if (!i) {
-          destino.classList.remove("con-cursor", "escribiendo");
-          return;
-        }
-        timer = setInterval(function () {
-          i--;
-          destino.textContent = texto.slice(0, i);
-          if (i <= 0) {
-            clearInterval(timer);
-            destino.classList.remove("con-cursor", "escribiendo", "completo");
-          }
-        }, 22);
-      }
-
-      enlace.addEventListener("mouseenter", escribir);
-      enlace.addEventListener("focus", escribir);
-      enlace.addEventListener("mouseleave", borrar);
-      enlace.addEventListener("blur", borrar);
-    });
-  }
 })();

@@ -107,6 +107,31 @@
   cursor: pointer;
 }
 
+body.rayos * {
+  outline: 1px solid color-mix(in oklab, var(--mint) 55%, transparent) !important;
+  outline-offset: -1px;
+}
+
+body.rayos img {
+  filter: grayscale(1) contrast(1.3) opacity(0.35);
+}
+
+body.rayos::after {
+  content: "modo rayos x";
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%);
+  z-index: 180;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bone);
+  background: var(--ink);
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .aurora,
