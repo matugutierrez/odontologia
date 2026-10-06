@@ -1415,10 +1415,23 @@ display: none;
 .boton-icono .tipeo.completo::after {
 display: none;
 }
-  .img-suelta {
-    display: none; 
-  } 
-  
+
+.img-suelta.suelta-1 {
+  display: none;
+}
+
+.img-suelta.suelta-2 {
+  display: block;
+  position: absolute;
+  right: 20px;
+  margin-top: -105px;
+  max-width: 5rem;
+  rotate: 0deg;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
   .boton-pc {
     display: none; 
   }
