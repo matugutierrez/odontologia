@@ -1493,7 +1493,7 @@ display: none;
   flex-direction: row; 
   align-items: center; 
   justify-content: center; 
-  background-color: rgba(222, 238, 245, 0.5);
+  background-color: rgba(222, 238, 245, 0.1);
   border: none;
   border-radius: 9px;
   padding: 8px 65px;  
